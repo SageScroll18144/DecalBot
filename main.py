@@ -8,7 +8,7 @@ t = turtle.Turtle()
 
 #SETUP
 
-LENGTH = 380 #ajusta de acordo com a imagem
+LENGTH = 260 #ajusta de acordo com a imagem
 list_axisX = np.array([])
 list_axisY = np.array([])
 
