@@ -7,7 +7,8 @@ turtle.title("Testandoooo")
 t = turtle.Turtle()
 
 #SETUP
-LENGTH = 200
+
+LENGTH = 380 #ajusta de acordo com a imagem
 list_axisX = np.array([])
 list_axisY = np.array([])
 
@@ -20,14 +21,14 @@ t.circle(LENGTH)
 t.penup()
 t.goto(LENGTH, 0)
 
-qtd_p = 36
+qtd_p = 144 #qtd de pontos/pregos. Número arbitrário
 
 for i in range(0, 360, int(360/qtd_p)):
     X = m.cos((m.pi/180)*i)
     Y = m.sin((m.pi/180)*i)
 
-    list_axisX = np.append(list_axisX, X)
-    list_axisY = np.append(list_axisY, Y)
+    list_axisX = np.append(list_axisX, X*LENGTH)
+    list_axisY = np.append(list_axisY, Y*LENGTH)
 
     t.goto(X*LENGTH, Y*LENGTH)
     t.pendown()
@@ -35,3 +36,16 @@ for i in range(0, 360, int(360/qtd_p)):
     t.penup()
 
 #Algorithm
+def set_goto_pen(dot_i, dot_n, based=0):
+    dot_i = dot_i - based
+    dot_n = dot_n - based
+
+    t.penup()
+    t.goto(list_axisX[dot_i], list_axisY[dot_i])
+    
+    t.pendown()
+    t.goto(list_axisX[dot_n], list_axisY[dot_n])
+
+set_goto_pen(0, 17)
+set_goto_pen(17, 30)
+set_goto_pen(30, 5)
