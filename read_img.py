@@ -23,12 +23,14 @@ for i in np.arange(0, 360, 360/qtd_p):
 
     img = cv2.circle(img, (x0+int(X*LENGTH), y0+int(-Y*LENGTH)), radius=3, color=(0, 0, 255), thickness=-1)
 
-#CONTA OS PIXELS
-while np.sum(img == 0) != 0:
-    node_root = 0
-    node_crrt = 0
-    max_v = -(10**9)
+#CONTA OS PIXELS 
+node_root = 0
+node_crrt = 0
 
+#while np.sum(img == 0) != 0:
+
+while True:
+    max_v = -(10**9)
     for i in range(len(list_axisXIMG)):
         cimg = img.copy()
 
@@ -44,6 +46,11 @@ while np.sum(img == 0) != 0:
 
     cv2.line(img, (int(list_axisXIMG[node_root]), int(list_axisYIMG[node_root])),
         (int(list_axisXIMG[node_crrt]), int(list_axisYIMG[node_crrt])), (255, 255, 255), thickness=2)
+    #draw in turtle
+
+    node_root = node_crrt
+    if max_v == 0:
+        break
     print(node_crrt)
     print(max_v)
 #FIM DA CONTAGEM
