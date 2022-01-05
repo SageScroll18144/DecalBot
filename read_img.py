@@ -13,15 +13,21 @@ list_axisXIMG = np.array([])
 list_axisYIMG = np.array([])
 
 qtd_p = 144 #qtd de pontos/pregos. Número arbitrário
+sci_notation = 1
+x = 0
 
-for i in range(0, 360, int(360/qtd_p)):
-    X = m.cos((m.pi/180)*i)
-    Y = -m.sin((m.pi/180)*i)
+while str(type(360*sci_notation/qtd_p))=="<class 'float'>":
+    sci_notation = m.pow(10, x)
+    x+=1
+
+for i in range(0, 360*sci_notation, int(360*sci_notation/qtd_p)):
+    X = m.cos((m.pi/180*sci_notation)*i)
+    Y = -m.sin((m.pi/180*sci_notation)*i)
 
     list_axisXIMG = np.append(list_axisXIMG, x0+int(X*LENGTH))
     list_axisYIMG = np.append(list_axisYIMG, y0+int(Y*LENGTH))
 
-    img = cv2.circle(img, (x0+int(X*LENGTH), y0+int(Y*LENGTH)), radius=5, color=(0, 0, 255), thickness=-1)
+    img = cv2.circle(img, (x0+int(X*LENGTH), y0+int(Y*LENGTH)), radius=3, color=(0, 0, 255), thickness=-1)
 
 
 #CONTA OS PIXELS

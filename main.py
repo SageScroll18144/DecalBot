@@ -24,9 +24,9 @@ t.goto(LENGTH, 0)
 
 qtd_p = 144 #qtd de pontos/pregos. Número arbitrário
 
-for i in range(0, 360, int(360/qtd_p)):
-    X = m.cos((m.pi/180)*i)
-    Y = m.sin((m.pi/180)*i)
+for i in range(0, 3600, int(3600/qtd_p)):
+    X = m.cos((m.pi/1800)*i)
+    Y = m.sin((m.pi/1800)*i)
 
     list_axisX = np.append(list_axisX, X*LENGTH)
     list_axisY = np.append(list_axisY, Y*LENGTH)
