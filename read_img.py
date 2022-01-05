@@ -23,19 +23,30 @@ for i in np.arange(0, 360, 360/qtd_p):
 
     img = cv2.circle(img, (x0+int(X*LENGTH), y0+int(-Y*LENGTH)), radius=3, color=(0, 0, 255), thickness=-1)
 
-
 #CONTA OS PIXELS
-cimg = img.copy()
+while np.sum(img == 0) != 0:
+    node_root = 0
+    node_crrt = 0
+    max_v = -(10**9)
 
-before_cnt = np.sum(cimg == 0)
-cv2.line(cimg, (int(list_axisXIMG[30]), int(list_axisYIMG[30])), (int(list_axisXIMG[143]), int(list_axisYIMG[143])), (255, 255, 255), thickness=2)
-after_cnt = np.sum(cimg == 0)
+    for i in range(len(list_axisXIMG)):
+        cimg = img.copy()
 
-in_that_line = before_cnt - after_cnt
+        before_cnt = np.sum(cimg == 0)
+        cv2.line(cimg, (int(list_axisXIMG[node_root]), int(list_axisYIMG[node_root])),
+        (int(list_axisXIMG[i]), int(list_axisYIMG[i])), (255, 255, 255), thickness=2)
+        after_cnt = np.sum(cimg == 0)
 
-print(in_that_line)
+        in_that_line = before_cnt - after_cnt
+        if in_that_line > max_v:
+            max_v = in_that_line
+            node_crrt = i
+
+    cv2.line(img, (int(list_axisXIMG[node_root]), int(list_axisYIMG[node_root])),
+        (int(list_axisXIMG[node_crrt]), int(list_axisYIMG[node_crrt])), (255, 255, 255), thickness=2)
+    print(node_crrt)
+    print(max_v)
 #FIM DA CONTAGEM
-
 
 print(len(list_axisYIMG))
 
