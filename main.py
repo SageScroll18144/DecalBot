@@ -48,9 +48,9 @@ def set_goto_pen(dot_i, dot_n, based=0):
     t.goto(list_axisX[dot_n], list_axisY[dot_n])
 
 ## Begin-OpenCV & Draw on Turtle Window 
-
+print(len(list_axisY))
 set_goto_pen(0, 17)
 set_goto_pen(17, 30)
-set_goto_pen(30, 5)
+set_goto_pen(30, 143)
 
 TK.mainloop()
