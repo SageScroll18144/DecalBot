@@ -1,5 +1,6 @@
 import cv2 
 import math as m
+import numpy as np
 
 img = cv2.imread('imgs/iron_man.jpg')
 
@@ -8,11 +9,18 @@ y0 = int(img.shape[1]/2)
 
 LENGTH = 260
 
+list_axisXIMG = np.array([])
+list_axisYIMG = np.array([])
+
 qtd_p = 144 #qtd de pontos/pregos. Número arbitrário
 
 for i in range(0, 360, int(360/qtd_p)):
     X = m.cos((m.pi/180)*i)
     Y = m.sin((m.pi/180)*i)
+
+    list_axisXIMG = np.append(list_axisXIMG, x0+int(X*LENGTH))
+    list_axisYIMG = np.append(list_axisYIMG, y0+int(Y*LENGTH))
+
     img = cv2.circle(img, (x0+int(X*LENGTH), y0+int(Y*LENGTH)), radius=5, color=(0, 0, 255), thickness=-1)
 
 cv2.imshow('img',img)

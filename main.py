@@ -1,6 +1,7 @@
 import turtle
 import math as m
 import numpy as np
+import tkinter as TK
 
 s = turtle.getscreen()  
 turtle.title("Testandoooo")
@@ -46,6 +47,10 @@ def set_goto_pen(dot_i, dot_n, based=0):
     t.pendown()
     t.goto(list_axisX[dot_n], list_axisY[dot_n])
 
+## Begin-OpenCV & Draw on Turtle Window 
+
 set_goto_pen(0, 17)
 set_goto_pen(17, 30)
 set_goto_pen(30, 5)
+
+TK.mainloop()
