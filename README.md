@@ -5,7 +5,9 @@ Este bot tem como função pegar uma imagem em preto e branco e fazer um desenho
 ## Exemplo
 
 - Antes
-![Screenshot](imgs/iron_man.png)
 
-- Depois 
+![Screenshot](imgs/iron_man.jpg)
+
+- Depois
+
 ![Screenshot](imgs/res.png)
